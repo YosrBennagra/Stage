@@ -18,6 +18,8 @@ public class UController {
         this.userserv = userserv;
     }
 
+
+
     @RequestMapping (method = RequestMethod.GET,value = "/users")
     public List < U > listAll() {
         return userserv.getUsers();

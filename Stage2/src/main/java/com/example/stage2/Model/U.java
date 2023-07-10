@@ -14,7 +14,8 @@ public class U {
 
     @Column
     private String mdp;
-
+//first_name , last, login, password, rigel ism les fichier w kol chay bl englais, maach testa3mel pathvariable , zid try catch.w dima esta3mel post,
+    //f langular a3mel formulaire ajouter,
     public U ( ) {
     }
 
