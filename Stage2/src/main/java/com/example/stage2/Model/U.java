@@ -1,6 +1,8 @@
 package com.example.stage2.Model;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table (name = "UTILISATEUR")
