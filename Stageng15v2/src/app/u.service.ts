@@ -6,7 +6,7 @@ import { User } from './Model/user.model';
   providedIn: 'root'
 })
 export class UService {
-  readonly API_URL = "http://localhost:8080";
+  readonly API_URL = "http://localhost:8090";
   readonly ENDPOINT_USER = "/getusers";
   readonly ENDPOINT_USERADD = "/adduser";
 

@@ -1,7 +1,25 @@
 
-<router-outlet></router-outlet>
-<!--<ul>
-  <li *ngFor="let user of users">
-    {{ user.id }}
-  </li>
-</ul>-->
+
+
+
+<p-table [value]="users" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>ID</th>
+          <th>LAST_NAME</th>
+          <th>FIRST_NAME</th>
+          <th>LOGIN</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-users>
+      <tr>
+        <td>{{ users.id }}</td>
+        <td>{{ users.last_name }}</td>
+        <td>{{ users.first_name }}</td>
+        <td>{{ users.login }}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<!-- 
+ <router-outlet></router-outlet>  -->

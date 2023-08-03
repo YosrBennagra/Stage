@@ -5,18 +5,24 @@ import { AppComponent } from './app.component';
 import { UserFromComponent } from './Component/user-from/user-from.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { TableModule } from 'primeng/table';
+import { UpdateuserComponent } from './Component/updateuser/updateuser.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFromComponent
+    UserFromComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

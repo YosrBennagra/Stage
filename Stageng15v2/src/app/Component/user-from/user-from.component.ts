@@ -4,6 +4,7 @@ import { empty } from 'rxjs';
 import { User } from 'src/app/Model/user.model';
 import { UService } from 'src/app/u.service';
 
+
 @Component({
   selector: 'app-user-from',
   templateUrl: './user-from.component.html',

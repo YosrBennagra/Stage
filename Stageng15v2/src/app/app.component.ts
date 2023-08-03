@@ -15,10 +15,12 @@ export class AppComponent implements OnInit{
   constructor(private UService: UService) {
   }
   
+  
   ngOnInit(): void {
     console.log('onInit')
     this.UService.getUsers().subscribe((data: any) => {
       this.users = data;
     })
+
   }
 }
