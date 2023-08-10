@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2  px-0 bg-light">
+        <div class="d-flex flex-column align-items-center align-items-sm-start pt-2 text-white min-vh-100">
+          <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline px-3" style="color: #ed1c24">Menu</span>
+          </a>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start col-12 " id="menu">
+            <li class="nav-item col-12 px-3" [ngClass]="menuList[0]?'active-item':''">
+              <a  class="nav-link align-middle px-0 cursor-pointer" [ngClass]="menuList[0]?'active':''" (click)="goToPage(0,'/home')">
+                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline ">Home</span>
+              </a>
+            </li>
+            <li class="nav-item col-12 px-3" [ngClass]="menuList[1]?'active-item':''">
+              <a  class="nav-link px-0 align-middle cursor-pointer" [ngClass]="menuList[1]?'active':''" (click)="goToPage(1,'/home/detail-livraison')">
+                <i class="fs-4 bi-arrow-left-right"></i> <span class="ms-1 d-none d-sm-inline">Detail Livraison</span></a>
+            </li>
+            <li class="nav-item col-12 px-3" [ngClass]="menuList[2]?'active-item':''">
+              <a  class="nav-link px-0 align-middle cursor-pointer" [ngClass]="menuList[2]?'active':''" (click)="goToPage(2,'/home/recharge')">
+                <i class="fs-4 bi-arrow-left-right"></i> <span class="ms-1 d-none d-sm-inline">Recharge</span></a>
+            </li>
+            <li class="nav-item col-12 px-3" [ngClass]="menuList[3]?'active-item':''">
+              <a  class="nav-link px-0 align-middle cursor-pointer" [ngClass]="menuList[3]?'active':''" (click)="goToPage(3,'/home/stock-carte-recharge')">
+                <i class="fs-4 bi bi-box"></i> <span class="ms-1 d-none d-sm-inline">Stock carte recharge</span></a>
+            </li>
+            
+    
+          </ul>
+          <hr>
+  
+        </div>
+      </div>
+      <div class="col p-0">
+        <nav class="navbar navbar-expand-sm bg-light p-0 m-0">
+  
+          <div class="col-12 col-md-12 col-lg-12">
+            <a  class="d-flex align-items-center text-black text-decoration-none float-start" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person rounded-circle fs-4"></i>
+              <span class="d-none d-sm-inline mx-1"></span>
+            </a>
+            <a  class="d-flex align-items-center text-black text-decoration-none  float-end">
+              <i class="bi bi-box-arrow-right rounded-circle fs-4 text-danger cursor-pointer" ></i>
+            </a>
+              </div>
+  
+        </nav>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
