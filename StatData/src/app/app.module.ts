@@ -9,7 +9,6 @@ import { StockCarteRechargeComponent } from './views/stock-carte-recharge/stock-
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,

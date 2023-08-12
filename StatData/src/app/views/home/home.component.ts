@@ -35,5 +35,9 @@ export class HomeComponent implements OnInit {
     }
     this.menuList[i] = true;
   }
-
+  logout() {
+    localStorage.clear();
+    /* this.userServ.setUserInfObj(undefined); */
+    this.router.navigate([''])
+  }
 }

@@ -1,1 +1,37 @@
-<p>recharge works!</p>
+<!-- <p-table [value]="recharges" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>LAST_NAME</th>
+            <th>FIRST_NAME</th>
+            <th>LOGIN</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-recharges>
+        <tr>
+          <td>{{ recharges.voucher_id }}</td>
+          <td>{{ recharges.recharge_amount }}</td>
+          <td>{{ recharges.msisdn }}</td>
+          <td>{{ recharges.date_recharge }}</td>
+        </tr>
+    </ng-template>
+  </p-table> -->
+
+  <table class="p-datatable-striped" style="min-width: 50rem;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>RECHARGE_AMOUNT</th>
+      <th>MSISDN</th>
+      <th>DATE_RECHARGE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let recharge of recharges">
+      <td>{{ recharge.voucherId }}</td>
+      <td>{{ recharge.rechargeAmount }}</td>
+      <td>{{ recharge.msisdn }}</td>
+      <td>{{ recharge.dateRecharge }}</td>
+    </tr>
+  </tbody>
+</table>

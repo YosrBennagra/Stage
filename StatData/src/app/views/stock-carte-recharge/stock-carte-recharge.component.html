@@ -1,1 +1,18 @@
-<p>stock-carte-recharge works!</p>
+<table class="p-datatable-striped" style="min-width: 50rem;">
+    <thead>
+      <tr>
+        <th>mois</th>
+        <th>cdDist</th>
+        <th>mntRing</th>
+        <th>nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stockcarterecharge of stockcarterecharges">
+        <td>{{ stockcarterecharge.mois }}</td>
+        <td>{{ stockcarterecharge.cdDist }}</td>
+        <td>{{ stockcarterecharge.mntRing }}</td>
+        <td>{{ stockcarterecharge.nombre }}</td>
+      </tr>
+    </tbody>
+  </table>
