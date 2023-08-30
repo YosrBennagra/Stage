@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
       this.goToPage(2, '')
     } else if (router.url.includes('stock-carte-recharge')) {
       this.goToPage(3, '')
+    } else if (router.url.includes('useradd')) {
+      this.goToPage(4, '')
     } 
 
   }

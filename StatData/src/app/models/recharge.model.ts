@@ -11,4 +11,12 @@ export class Recharge {
         this.msisdn = msisdn;
         this.date_recharge = date_recharge;
     }
+
+    
 } 
+export interface RechargePage {
+    content: Recharge[],
+    totalPages: number,
+    last: boolean,
+    number: number
+  }

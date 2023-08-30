@@ -1,54 +1,41 @@
 <main>
-    <div class="col-12 col-lg-12 col-md-12">
-  
-      <div class="col-md-4 col-lg-4 col-8 col-sm-8 card m-auto mt-5">
-  
-        <img src="assets/imgs/logo_original.png" width="50%" style=" margin: auto;">
-  
-        <form class=" login-form" [formGroup]="loginForm">
-          <!-- Email input -->
-          <div class="div-input col-11 m-auto mb-4">
-            <div class="mb-4"  *ngIf="step1">
-              <label class="form-label" for="formusername">login</label>
-              <input type="text" id="formusername" formControlName="username" class="form-control"/>
-            </div>
-            <div class="mb-4"  *ngIf="!step1" class="invisible">
-              <label class="form-label" for="formusername">login</label>
-              <input type="text" id="formusername" class="form-control"/>
-            </div>
-            <div class="mb-4" *ngIf="step1">
-              <label class="form-label" for="password">Mot de passe</label>
-              <input type="password" formControlName="password" id="password" class="form-control"/>
-            </div>
-  
-            <!-- Password input -->
-            <div class="form-outline mb-4" *ngIf="!step1"  >
-              <label class="form-label" for="formpwd">code otp</label>
-              <input type="text" id="formpwd" class="form-control" formControlName="codeOtp"/>
-            </div>
+  <div class="col-12 col-lg-12 col-md-12">
+
+    <div class="col-md-4 col-lg-4 col-8 col-sm-8 card m-auto mt-5">
+
+      <img src="assets/imgs/logo_original.png" width="50%" style=" margin: auto;">
+
+      <form class=" login-form" [formGroup]="loginForm">
+        <!-- Email input -->
+        <div class="div-input col-11 m-auto mb-4">
+          <div class="mb-4"  >
+            <label class="form-label" for="formusername">login</label>
+            <input type="text" id="formusername" formControlName="login" class="form-control"/>
           </div>
-          <!-- 2 column grid layout for inline styling -->
-  
-          <!-- Submit button -->
-          <div class="row col-11  m-auto">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 alert-danger" [ngClass]="invalidPwd||invalidOtp||serverErr?'':'invisible'">
-             <span *ngIf="invalidPwd">Mot de passe incorrect</span> 
-             <span *ngIf="invalidOtp"> Code OTP invalide</span>
-             <span *ngIf="serverErr">  Problème de connexion, veuillez essayer ulterieurement!!</span>
-            </div>
-      
-            <div class="mx-auto col-7 col-sm-8 col-lg-4 col-md-6 "><!--m-auto-->
-              <button type="button" class="btn btn-primary btn-block mx-auto div-btn mb-4" (click)="login()">Valider</button>
-            </div>
-  
+          <div class="mb-4" >
+            <label class="form-label" for="password">Mot de passe</label>
+            <input type="password" formControlName="password" id="password" class="form-control"/>
           </div>
-  
-  
-          <!-- Register buttons -->
-  
-        </form>
-        <app-loading *ngIf="loading"></app-loading>
-      </div>
+
+
+        </div>
+        <!-- 2 column grid layout for inline styling -->
+
+        <!-- Submit button -->
+        <div class="row col-11  m-auto">
+          <div class="error-message">{{ errorMessage }}</div>
+
+    
+          <div class="mx-auto col-7 col-sm-8 col-lg-4 col-md-6 "><!--m-auto-->
+            <button type="button" class="btn btn-primary btn-block mx-auto div-btn mb-4" (click)="login()">Valider</button>
+          </div>
+
+        </div>
+
+
+        <!-- Register buttons -->
+
+      </form>
     </div>
-  </main>
-  
+  </div>
+</main>

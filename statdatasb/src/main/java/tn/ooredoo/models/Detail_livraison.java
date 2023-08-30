@@ -1,24 +1,42 @@
 package tn.ooredoo.models;
 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
-public class detail_livraison {
+@Entity
+@Table (name = "DETAIL_LIVRAISON")
+public class Detail_livraison {
+    @Id
     private String numSer;
+    @Column
     private Date dateLiv;
+    @Column
     private Date dateFact;
+    @Column
     private Integer mntRing; // Using Integer for NUMBER(2,0)
+    @Column
     private String cdDist;
+    @Column
     private Character recharge;
+    @Column
     private String msisdn;
+    @Column
     private Integer mntDt; // Using Integer for NUMBER(2,0)
+    @Column
     private Date dateRecharge;
+    @Column
     private Character flag1;
+    @Column
     private Character flag2;
+    @Column
     private Character flag3;
+    @Column
     private Character flag4;
 
-    public detail_livraison (String numSer, Date dateLiv, Date dateFact, Integer mntRing, String cdDist, Character recharge, String msisdn, Integer mntDt, Date dateRecharge, Character flag1, Character flag2, Character flag3, Character flag4) {
+    public Detail_livraison (String numSer, Date dateLiv, Date dateFact, Integer mntRing, String cdDist, Character recharge, String msisdn, Integer mntDt, Date dateRecharge, Character flag1, Character flag2, Character flag3, Character flag4) {
         this.numSer = numSer;
         this.dateLiv = dateLiv;
         this.dateFact = dateFact;
@@ -34,7 +52,7 @@ public class detail_livraison {
         this.flag4 = flag4;
     }
 
-    public detail_livraison ( ) {
+    public Detail_livraison ( ) {
     }
 
     public String getNumSer ( ) {

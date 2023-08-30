@@ -24,8 +24,11 @@
               <a  class="nav-link px-0 align-middle cursor-pointer" [ngClass]="menuList[3]?'active':''" (click)="goToPage(3,'/home/stock-carte-recharge')">
                 <i class="fs-4 bi bi-box"></i> <span class="ms-1 d-none d-sm-inline">Stock carte recharge</span></a>
             </li>
-            
-    
+            <li class="nav-item col-12 px-3" [ngClass]="menuList[4]?'active-item':''">
+              <a  class="nav-link px-0 align-middle cursor-pointer" [ngClass]="menuList[4]?'active':''" (click)="goToPage(4,'/home/useradd')">
+                <i class="fs-4 bi bi-box"></i> <span class="ms-1 d-none d-sm-inline">Add User</span></a>
+            </li>
+        
           </ul>
           <hr>
   
@@ -40,7 +43,7 @@
               <span class="d-none d-sm-inline mx-1"></span>
             </a>
             <a  class="d-flex align-items-center text-black text-decoration-none  float-end" >
-              <p (click)="logout()">azdaz</p>
+              <p (click)="logout()">Logout</p>
             </a>
               </div>
   

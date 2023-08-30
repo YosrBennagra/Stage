@@ -26,6 +26,15 @@ public class UserService {
         return userrep.findById (id).orElse (null);
     }
 
+    public boolean authenticate(String login, String password) {
+        try {
+            User user = userrep.findByLoginAndPassword(login, password);
+            return user != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Return false indicating authentication failed due to an error
+        }
+    }
     public void deleteUser (long id) {
         userrep.deleteById (id);
     }

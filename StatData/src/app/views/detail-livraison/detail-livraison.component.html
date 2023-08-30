@@ -1,1 +1,36 @@
-<p>detail-livraison works!</p>
+<table class="p-datatable-striped" style="min-width: 50rem;">
+    <thead>
+      <tr>
+        <th>numSer</th>
+        <th>dateLiv</th>
+        <th>dateFact</th>
+        <th>mntRing</th>
+        <th>cdDist</th>
+        <th>recharge</th>
+        <th>msisdn</th>
+        <th>mntDt</th>
+        <th>dateRecharge</th>
+        <th>flag1</th>
+        <th>flag2</th>
+        <th>flag3</th>
+        <th>flag4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detaillivraison of  detaillivraisons">
+        <td>{{ detaillivraison.numSer }}</td>
+        <td>{{ detaillivraison.dateLiv }}</td>
+        <td>{{ detaillivraison.dateFact }}</td>
+        <td>{{ detaillivraison.mntRing }}</td>
+        <td>{{ detaillivraison.cdDist }}</td>
+        <td>{{ detaillivraison.recharge }}</td>
+        <td>{{ detaillivraison.msisdn }}</td>
+        <td>{{ detaillivraison.mntDt }}</td>
+        <td>{{ detaillivraison.dateRecharge }}</td>
+        <td>{{ detaillivraison.flag1 }}</td>
+        <td>{{ detaillivraison.flag2 }}</td>
+        <td>{{ detaillivraison.flag3 }}</td>
+        <td>{{ detaillivraison.flag4 }}</td>
+      </tr>
+    </tbody>
+  </table>
