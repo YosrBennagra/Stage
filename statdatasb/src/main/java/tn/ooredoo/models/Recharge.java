@@ -2,6 +2,7 @@ package tn.ooredoo.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+
 @Entity
 @Table (name = "RECHARGE")
 public class Recharge {

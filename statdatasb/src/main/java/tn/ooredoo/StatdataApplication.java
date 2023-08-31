@@ -3,7 +3,9 @@ package tn.ooredoo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
+
 public class StatdataApplication {
 
 	public static void main(String[] args) {

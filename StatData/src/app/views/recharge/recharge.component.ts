@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RechargeService } from '../../services/Recharge.service';
-import { RechargePage } from 'src/app/models/Recharge.model';
+import { RechargePage } from 'src/app/models/recharge.model';
 
 @Component({
   selector: 'app-recharge',
@@ -19,16 +19,14 @@ export class RechargeComponent implements OnInit {
   page: number = 0;
   size: number = 5;
 
-  constructor(private RechargeService: RechargeService) {this.dateRechargeStart = null;}
+  constructor(private rechargeService: RechargeService) {}
 
   ngOnInit(): void {
-    console.log('onInit');
     this.getRechargeFind();
-    console.log(this.recharges);
   }
   
   getRechargeFind() {
-    this.RechargeService.GetCategoriesFiltredBy(
+    this.rechargeService.getFilteredRecharges(
       this.voucherId,
       this.msisdn,
       this.rechargeAmount,
@@ -69,7 +67,7 @@ export class RechargeComponent implements OnInit {
     return new Array(this.rechargefind?.totalPages);
   }
 
-  GetPage(i: number) {
+  getPage(i: number) {
     this.page = i;
     this.getRechargeFind();
   }

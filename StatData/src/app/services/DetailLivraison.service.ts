@@ -7,7 +7,7 @@ import { DetailLivraison } from '../models/detail_livraison.model';
 
 
   export class DetailLivraisonService {
-    readonly API_URL = "http://localhost:8080";
+    readonly API_URL = "http://localhost:8081";
     readonly ENDPOINT_USER = "/get_detail_livraison";
   
     constructor(private httpClient: HttpClient) { }

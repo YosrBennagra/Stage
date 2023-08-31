@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   readonly ENDPOINT_USERADD = "/adduser";
-  private apiUrl = "http://localhost:8080";
+  private apiUrl = "http://localhost:8081";
 
   constructor(private http: HttpClient) { }
 
