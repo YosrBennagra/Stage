@@ -1,36 +1,130 @@
-<table class="p-datatable-striped" style="min-width: 50rem;">
-    <thead>
-      <tr>
-        <th>numSer</th>
-        <th>dateLiv</th>
-        <th>dateFact</th>
-        <th>mntRing</th>
-        <th>cdDist</th>
-        <th>recharge</th>
-        <th>msisdn</th>
-        <th>mntDt</th>
-        <th>dateRecharge</th>
-        <th>flag1</th>
-        <th>flag2</th>
-        <th>flag3</th>
-        <th>flag4</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let detaillivraison of  detaillivraisons">
-        <td>{{ detaillivraison.numSer }}</td>
-        <td>{{ detaillivraison.dateLiv }}</td>
-        <td>{{ detaillivraison.dateFact }}</td>
-        <td>{{ detaillivraison.mntRing }}</td>
-        <td>{{ detaillivraison.cdDist }}</td>
-        <td>{{ detaillivraison.recharge }}</td>
-        <td>{{ detaillivraison.msisdn }}</td>
-        <td>{{ detaillivraison.mntDt }}</td>
-        <td>{{ detaillivraison.dateRecharge }}</td>
-        <td>{{ detaillivraison.flag1 }}</td>
-        <td>{{ detaillivraison.flag2 }}</td>
-        <td>{{ detaillivraison.flag3 }}</td>
-        <td>{{ detaillivraison.flag4 }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <label>Date Liv Start :</label>
+      <input type="date" id="dateLiv" [(ngModel)]="dateLivStart" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>Date Recharge Start:</label>
+      <input type="date" id="dateRechargeStart" [(ngModel)]="dateRechargeStart" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>Date Fact Start:</label>
+      <input type="date" id="dateFact" [(ngModel)]="dateFactStart" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>numSer:</label>
+      <input type="text" pInputText [(ngModel)]="numSer" class="form-control">
+    </div>
+  </div>
+  <div class="row mb-3">
+
+    <div class="col-lg-3">
+      <label>Date Liv End:</label>
+      <input type="date" id="dateLiv" [(ngModel)]="dateLivEnd" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>Date Recharge End:</label>
+      <input type="date" id="dateRechargeEnd" [(ngModel)]="dateRechargeEnd" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>Date Fact End:</label>
+      <input type="date" id="dateFact" [(ngModel)]="dateFactEnd" class="form-control">
+    </div>
+
+    <div class="col-lg-3">
+      <label>mntRing:</label>
+      <input type="number" pInputText [(ngModel)]="mntRing" class="form-control">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <label>cdDist:</label>
+      <input type="text" pInputText [(ngModel)]="cdDist" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>recharge:</label>
+      <input type="text" pInputText [(ngModel)]="recharge" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>msisdn:</label>
+      <input type="text" pInputText [(ngModel)]="msisdn" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>mntDt:</label>
+      <input type="text" pInputText [(ngModel)]="mntDt" class="form-control">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-lg-3">
+      <label>flag1:</label>
+      <input type="text" pInputText [(ngModel)]="flag1" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>flag2:</label>
+      <input type="text" pInputText [(ngModel)]="flag2" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>flag3:</label>
+      <input type="text" pInputText [(ngModel)]="flag3" class="form-control">
+    </div>
+    <div class="col-lg-3">
+      <label>flag4:</label>
+      <input type="text" pInputText [(ngModel)]="flag4" class="form-control">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-lg-12 text-center">
+      <button type="button" class="btn btn-danger" (click)="clearForm()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+  </div>
+</div>
+
+<p-table [value]="DetailLivraisons" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>numSer</th>
+      <th>dateLiv</th>
+      <th>dateFact</th>
+      <th>mntRing</th>
+      <th>cdDist</th>
+      <th>recharge</th>
+      <th>msisdn</th>
+      <th>mntDt</th>
+      <th>dateRecharge</th>
+      <th>flag1</th>
+      <th>flag2</th>
+      <th>flag3</th>
+      <th>flag4</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-detaillivraison>
+    <tr>
+      <td>{{ detaillivraison.numSer }}</td>
+      <td>{{ detaillivraison.dateLiv | date:"MM/dd/yyyy" }}</td>
+      <td>{{ detaillivraison.dateFact | date:"MM/dd/yyyy" }}</td>
+      <td>{{ detaillivraison.mntRing }}</td>
+      <td>{{ detaillivraison.cdDist }}</td>
+      <td>{{ detaillivraison.recharge }}</td>
+      <td>{{ detaillivraison.msisdn }}</td>
+      <td>{{ detaillivraison.mntDt }}</td>
+      <td>{{ detaillivraison.dateRecharge | date:"MM/dd/yyyy" }}</td>
+      <td>{{ detaillivraison.flag1 }}</td>
+      <td>{{ detaillivraison.flag2 }}</td>
+      <td>{{ detaillivraison.flag3 }}</td>
+      <td>{{ detaillivraison.flag4 }}</td>
+    </tr>
+
+  </ng-template>
+</p-table>
+
+<nav  class="container" >
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" (click)="previousPage()"><</a></li>
+    <li class="page-item" *ngFor='let in of counter() ;let i = index' >
+      <a class="page-link " [ngStyle]="{ 'color': page === i ? '#1E90FF' : null}"  (click)="getPage(i)">{{i +1}}</a>
+  </li>
+    <li class="page-item"><a class="page-link" (click)="nextPage()">></a></li>
+  </ul>
+</nav>

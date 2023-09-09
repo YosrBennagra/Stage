@@ -9,5 +9,11 @@ export class StockCarteRecharge {
         this.cdDist = cdDist;
         this.mntRing = mntRing;
         this.nombre = nombre;
-    }
+    }    
 }
+export interface StockCarteRechargePage {
+    content: StockCarteRecharge[],
+    totalPages: number,
+    last: boolean,
+    number: number
+  }

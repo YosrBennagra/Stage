@@ -1,22 +1,30 @@
 package tn.ooredoo.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import tn.ooredoo.models.Detail_livraison;
-import tn.ooredoo.repositories.DetailLivraisonRepo;
 
-import java.util.List;
-@Service
-public class DetailLivraisonService {
+import java.sql.Date;
 
-    private DetailLivraisonRepo detailLivraisonRepo;
 
-    @Autowired
-    public DetailLivraisonService (DetailLivraisonRepo detailLivraisonRepo) {
-        this.detailLivraisonRepo = detailLivraisonRepo;
-    }
+public interface DetailLivraisonService {
 
-    public List < Detail_livraison > getDetailLivraisons() {
-        return (List < Detail_livraison >) detailLivraisonRepo.findAll();
-    }
+    Page < Detail_livraison > getDetailLivraisonFilteredBy(
+            String numSer,
+            Date dateLivStart,
+            Date dateLivEnd,
+            Date dateFactStart,
+            Date dateFactEnd,
+            Integer mntRing,
+            String cdDist,
+            Character recharge,
+            String msisdn,
+            Integer mntDt,
+            Date dateRechargeStart,
+            Date dateRechargeEnd,
+            Character flag1,
+            Character flag2,
+            Character flag3,
+            Character flag4,
+            Pageable pageable);
 }

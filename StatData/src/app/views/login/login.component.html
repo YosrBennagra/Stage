@@ -1,40 +1,29 @@
 <main>
   <div class="col-12 col-lg-12 col-md-12">
-
     <div class="col-md-4 col-lg-4 col-8 col-sm-8 card m-auto mt-5">
-
       <img src="assets/imgs/logo_original.png" width="50%" style=" margin: auto;">
-
       <form class=" login-form" [formGroup]="loginForm">
         <!-- Email input -->
         <div class="div-input col-11 m-auto mb-4">
-          <div class="mb-4"  >
+          <div class="mb-4">
             <label class="form-label" for="formusername">login</label>
-            <input type="text" id="formusername" formControlName="login" class="form-control"/>
+            <input type="text" id="formusername" formControlName="login" class="form-control" />
           </div>
-          <div class="mb-4" >
+          <div class="mb-4">
             <label class="form-label" for="password">Mot de passe</label>
-            <input type="password" formControlName="password" id="password" class="form-control"/>
+            <input type="password" formControlName="password" id="password" class="form-control" />
           </div>
-
-
         </div>
         <!-- 2 column grid layout for inline styling -->
-
         <!-- Submit button -->
         <div class="row col-11  m-auto">
           <div class="error-message">{{ errorMessage }}</div>
-
-    
           <div class="mx-auto col-7 col-sm-8 col-lg-4 col-md-6 "><!--m-auto-->
-            <button type="button" class="btn btn-primary btn-block mx-auto div-btn mb-4" (click)="login()">Valider</button>
+            <button type="button" class="btn btn-primary btn-block mx-auto div-btn mb-4"
+              (click)="login()">Valider</button>
           </div>
-
         </div>
-
-
         <!-- Register buttons -->
-
       </form>
     </div>
   </div>

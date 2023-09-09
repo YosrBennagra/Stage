@@ -31,16 +31,18 @@ export class UserFromComponent implements OnInit {
         login: this.userForm.get('login')?.value,
         password: this.userForm.get('password')?.value,
       };
-      this.userService.addUser(user).subscribe(
-        () => {
+      
+      this.userService.addUser(user).subscribe({
+        next: () => {
           console.log('User added successfully');
           // Optionally, perform any additional actions after adding the user
         },
-        (error) => {
+        error: (error) => {
           console.log('Error adding user:', error);
           // Handle the error appropriately
-        }
-      );
+        },
+      });
     }
   }
+  
 }

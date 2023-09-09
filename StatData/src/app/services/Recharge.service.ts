@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Recharge, RechargePage } from '../models/recharge.model';
+import { Recharge, RechargePage } from '../models/Recharge.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,6 @@ export class RechargeService {
   readonly ENDPOINT_FIND = "/getRechargeFiltredBy";
 
   constructor(private httpClient: HttpClient) {}
-
-  getRecharges() {
-    return this.httpClient.get<Recharge[]>(this.API_URL + this.ENDPOINT_USER);
-  }
 
   getFilteredRecharges(
     voucherId: string | null,
@@ -37,7 +33,8 @@ export class RechargeService {
       page: page.toString(),
       size: size.toString()
     };
-
+    console.log(dateRechargeStart);
+      console.log(dateRechargeEnd);
     return this.httpClient.post<RechargePage>(
       this.API_URL + this.ENDPOINT_FIND,
       filterData,

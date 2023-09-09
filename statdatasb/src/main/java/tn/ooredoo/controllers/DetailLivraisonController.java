@@ -1,32 +1,43 @@
 package tn.ooredoo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+import tn.ooredoo.dto.DetailLivraisonDTO;
 import tn.ooredoo.models.Detail_livraison;
-import tn.ooredoo.services.DetailLivraisonService;
+import tn.ooredoo.servicesImp.DetailLivraisonImp;
 
-import java.util.Collections;
-import java.util.List;
-
-@CrossOrigin (origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
 public class DetailLivraisonController {
-    private final DetailLivraisonService detailLivraisonService;
+    private final DetailLivraisonImp detailLivraisonImp;
     @Autowired
-    public DetailLivraisonController (DetailLivraisonService detailLivraisonService) {
-        this.detailLivraisonService = detailLivraisonService;
+    public DetailLivraisonController (DetailLivraisonImp detailLivraisonImp) {
+        this.detailLivraisonImp = detailLivraisonImp;
     }
-    @RequestMapping (method = RequestMethod.GET, value = "/get_detail_livraison")
-    public List < Detail_livraison > listAll() {
-        try {
-            return detailLivraisonService.getDetailLivraisons();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
+
+    @PostMapping (value = "/getDetailLivraisonFiltredBy")
+    public Page < Detail_livraison > getDetailLivraisonBy (@RequestBody DetailLivraisonDTO filterDTO, Pageable pageable) {
+        return detailLivraisonImp.getDetailLivraisonFilteredBy (
+                filterDTO.getNumSer (),
+                filterDTO.getDateLivStart (),
+                filterDTO.getDateLivEnd (),
+                filterDTO.getDateFactStart (),
+                filterDTO.getDateFactEnd (),
+                filterDTO.getMntRing (),
+                filterDTO.getCdDist (),
+                filterDTO.getRecharge (),
+                filterDTO.getMsisdn (),
+                filterDTO.getMntDt (),
+                filterDTO.getDateRechargeStart (),
+                filterDTO.getDateRechargeEnd (),
+                filterDTO.getFlag1 (),
+                filterDTO.getFlag2 (),
+                filterDTO.getFlag3 (),
+                filterDTO.getFlag4 (),
+                pageable);
+
     }
 }

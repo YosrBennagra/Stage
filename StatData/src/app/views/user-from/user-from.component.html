@@ -1,19 +1,28 @@
-<form [formGroup]="userForm" (ngSubmit)="submitForm()" >
-  <div>
-    <label for="name">First_name:</label>
-    <input type="text" id="name" formControlName="name" required>
-  </div>
-   <div>
-    <label for="last_name">Last_Name:</label>
-    <input type="text" id="last_name" formControlName="last_name" required>
-  </div>
-   <div>
-    <label for="login">login:</label>
-    <input type="text" id="login" formControlName="login" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="password" required>
-  </div>
-  <button type="submit">Add User</button>
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <table>
+    <tr>
+      <td><label for="name">First_name:</label></td>
+      <td><input type="text" id="name" formControlName="name" pInputText required /></td>
+    </tr>
+    <tr>
+      <td><label for="last_name">Last_Name:</label></td>
+      <td><input type="text" id="last_name" formControlName="last_name" pInputText required></td>
+    </tr>
+    <tr>
+      <td>login:</td>
+      <td><input type="text" id="login" formControlName="login" pInputText required></td>
+    </tr>
+    <tr>
+      <td>password:</td>
+      <td><input type="password" id="password" formControlName="password" pInputText required></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>    <button style="
+        min-inline-size: -webkit-fill-available;  
+        place-content: center;
+        background-color: slategrey;" pButton type="button" type="submit">Add User</button></td>
+    </tr>
+
+  </table>
 </form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RechargeService } from '../../services/Recharge.service';
-import { RechargePage } from 'src/app/models/recharge.model';
+import { RechargePage } from 'src/app/models/Recharge.model';
 
 @Component({
   selector: 'app-recharge',
@@ -9,20 +9,33 @@ import { RechargePage } from 'src/app/models/recharge.model';
   providers: [RechargeService]
 })
 export class RechargeComponent implements OnInit {
+
+
+
+  
   recharges: any[] = [];
   rechargefind: RechargePage | undefined;
   voucherId: string | null = null;
   msisdn: string | null = null;
   rechargeAmount: number | null = null;
   dateRechargeStart: string | null = null;
-  dateRechargeEnd: string | null = null;
+  dateRechargeEnd: string | null = null; 
   page: number = 0;
   size: number = 5;
-
   constructor(private rechargeService: RechargeService) {}
 
   ngOnInit(): void {
     this.getRechargeFind();
+    const today = new Date();
+    const sevenDaysAgo = new Date(today);
+    sevenDaysAgo.setDate(today.getDate() - 7);
+
+    // Format the date as YYYY-MM-DD (compatible with the input type "date")
+    const formattedDate = sevenDaysAgo.toISOString().split('T')[0];
+
+    // Set the default date for the input field
+    this.dateRechargeStart = formattedDate;
+
   }
   
   getRechargeFind() {
@@ -71,4 +84,13 @@ export class RechargeComponent implements OnInit {
     this.page = i;
     this.getRechargeFind();
   }
+
+clearForm() {
+  this.dateRechargeStart = null;
+  this.voucherId = '';
+  this.rechargeAmount = null;
+  this.dateRechargeEnd = null; 
+  this.msisdn = '';
+}
+
 }

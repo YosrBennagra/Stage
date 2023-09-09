@@ -4,18 +4,18 @@ package tn.ooredoo.dto;
 import java.sql.Date;
 
 public class RechargeFilterDTO {
-    private String vouchedId;
+    private String voucherId;
     private Integer rechargeAmount;
     private String msisdn;
     private Date dateRechargeStart;
-    private Date getDateRechargeEnd;
+    private Date dateRechargeEnd;
 
-    public String getVouchedId() {
-        return vouchedId;
+    public String getVoucherId() {
+        return voucherId;
     }
 
-    public void setVouchedId(String vouchedId) {
-        this.vouchedId = vouchedId;
+    public void setVoucherId(String voucherId) {
+        this.voucherId = voucherId;
     }
 
     public Integer getRechargeAmount() {
@@ -42,11 +42,22 @@ public class RechargeFilterDTO {
         this.dateRechargeStart = dateRechargeStart;
     }
 
-    public Date getGetDateRechargeEnd() {
-        return getDateRechargeEnd;
+    public Date getDateRechargeEnd() {
+        return dateRechargeEnd;
     }
 
     public void setGetDateRechargeEnd(Date getDateRechargeEnd) {
-        this.getDateRechargeEnd = getDateRechargeEnd;
+        this.dateRechargeEnd = getDateRechargeEnd;
+    }
+
+    @Override
+    public String toString ( ) {
+        return "RechargeFilterDTO{" +
+                "voucherId='" + voucherId + '\'' +
+                ", rechargeAmount=" + rechargeAmount +
+                ", msisdn='" + msisdn + '\'' +
+                ", dateRechargeStart=" + dateRechargeStart +
+                ", DateRechargeEnd=" + dateRechargeEnd +
+                '}';
     }
 }

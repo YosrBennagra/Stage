@@ -12,10 +12,10 @@ import java.sql.Date;
 
 @Service
 public class RechargeServiceImp  implements RechargeService {
-    private final RechargeDao rechargeRepository;
+    private final RechargeDao rechargeDao;
     @Autowired
     public RechargeServiceImp(RechargeDao rechargeRepository) {
-        this.rechargeRepository = rechargeRepository;
+        this.rechargeDao = rechargeRepository;
     }
     @Override
     public Page<Recharge> getRechargeFilteredBy(
@@ -25,6 +25,12 @@ public class RechargeServiceImp  implements RechargeService {
             Date dateRechargeStart,
             Date dateRechargeEnd,
             Pageable pageable) {
-        return rechargeRepository.getFilteredRecharges(voucherId, rechargeAmount, msisdn, dateRechargeStart, dateRechargeEnd, pageable);
+        if (dateRechargeEnd != null){
+            Date tomorrow = new Date(dateRechargeEnd.getTime() + 24 * 60 * 60 * 1000);
+            return rechargeDao.getFilteredRecharges(voucherId, rechargeAmount, msisdn, dateRechargeStart, tomorrow, pageable);
+
+        }else
+            return rechargeDao.getFilteredRecharges(voucherId, rechargeAmount, msisdn, dateRechargeStart, dateRechargeEnd, pageable);
+
     }
 }

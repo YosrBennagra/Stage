@@ -1,31 +1,33 @@
 package tn.ooredoo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+import tn.ooredoo.dto.StockCarteRechargeDTO;
+
 import tn.ooredoo.models.Stock_carte_recharge;
-import tn.ooredoo.services.StockCarteRechargeService;
+import tn.ooredoo.servicesImp.StockCarteRechargeImp;
 
-
-import java.util.Collections;
-import java.util.List;
-@CrossOrigin (origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class StockCarteRechargeController {
-    private final StockCarteRechargeService stockCarteRechargeService;
+
+    private final StockCarteRechargeImp stockCarteRechargeImp;
     @Autowired
-    public StockCarteRechargeController (StockCarteRechargeService stockCarteRechargeService) {
-        this.stockCarteRechargeService = stockCarteRechargeService;
+    public StockCarteRechargeController (StockCarteRechargeImp stockCarteRechargeImp) {
+        this.stockCarteRechargeImp = stockCarteRechargeImp;
     }
-    @RequestMapping (method = RequestMethod.GET, value = "/get_stock_carte_recharge")
-    public List < Stock_carte_recharge > listAll() {
-        try {
-            return stockCarteRechargeService.getStockCarteRecharges();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
+    @PostMapping(value = "/getStockCarteRechargeBy")
+    public Page<Stock_carte_recharge> getStockCarteRechargeBy(@RequestBody StockCarteRechargeDTO filterDTO, Pageable pageable){
+        return stockCarteRechargeImp.getStockCarteRechargeBy(
+                filterDTO.getMois(),
+                filterDTO.getCdDist(),
+                filterDTO.getMntRing(),
+                filterDTO.getNombre(),
+                pageable);
     }
+
+
+
 }

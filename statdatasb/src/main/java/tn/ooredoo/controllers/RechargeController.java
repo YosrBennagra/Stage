@@ -21,14 +21,15 @@ public class RechargeController {
 
     @PostMapping(value = "/getRechargeFiltredBy")
     public Page<Recharge> getRechargeFiltredBy(@RequestBody RechargeFilterDTO filterDTO, Pageable pageable) {
+        System.out.println ( filterDTO );
         System.out.println("Received Start Date: " + filterDTO.getDateRechargeStart());
-        System.out.println("Received End Date: " + filterDTO.getGetDateRechargeEnd());
+        System.out.println("Received End Date: " + filterDTO.getDateRechargeEnd());
         return rechargeServiceImp.getRechargeFilteredBy(
-                filterDTO.getVouchedId(),
+                filterDTO.getVoucherId(),
                 filterDTO.getRechargeAmount(),
                 filterDTO.getMsisdn(),
                 filterDTO.getDateRechargeStart(),
-                filterDTO.getGetDateRechargeEnd(),
+                filterDTO.getDateRechargeEnd(),
                 pageable);
     }
 }

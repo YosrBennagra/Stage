@@ -12,5 +12,4 @@ public interface RechargeService  {
     Page<Recharge> getRechargeFilteredBy(
             String voucherId, Integer rechargeAmount, String msisdn, Date dateRechargeStart, Date dateRechargeEnd, Pageable pageable);
 
-
 }

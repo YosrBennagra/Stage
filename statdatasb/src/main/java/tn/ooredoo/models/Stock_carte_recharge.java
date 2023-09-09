@@ -13,7 +13,7 @@ public class Stock_carte_recharge {
     @Id
     private String cdDist;
     @Column
-    private Integer mntRing; // Using Integer for NUMBER(2,0)
+    private Integer mntRing;
     @Column
     private Integer nombre;
 
